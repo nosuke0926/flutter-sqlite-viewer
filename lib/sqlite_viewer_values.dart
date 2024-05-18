@@ -26,7 +26,7 @@ class _DataListState extends State<DataList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(widget.tableName)),
-        body: Container(padding: const EdgeInsets.all(20.0), child: _getWidget(context)));
+        body: Container(padding: const EdgeInsets.all(20.0), child: _getWidget(context)),);
   }
 
   Future<List?> _getValues() async {
@@ -55,7 +55,7 @@ class _DataListState extends State<DataList> {
                   child: Text(
                     header ?? '',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           fontWeight: FontWeight.w700,
                           fontSize: 14.0,
                           color: Colors.black87,
@@ -75,7 +75,7 @@ class _DataListState extends State<DataList> {
                   child: Text(
                     value.toString(),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 14.0, color: Colors.grey[900]),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 14.0, color: Colors.grey[900]),
                   ),
                 );
               },

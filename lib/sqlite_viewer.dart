@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import './sqlite_viewer_tables.dart';
+import 'package:sqlite_viewer/sqlite_viewer_tables.dart';
 
 class DatabaseList extends StatefulWidget {
   /// open the database viewer in full screen page
   static void open(BuildContext context, {String? path}) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (_) => DatabaseList(dbPath: path)));
+        context, MaterialPageRoute(builder: (_) => DatabaseList(dbPath: path)),);
   }
 
   const DatabaseList({this.dbPath});
@@ -33,7 +33,7 @@ class _DatabaseListState extends State<DatabaseList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("DB")), body: _getWidget(context));
+        appBar: AppBar(title: const Text("DB")), body: _getWidget(context),);
   }
 
   Future<List?> _getDatabases() async {
@@ -46,7 +46,7 @@ class _DatabaseListState extends State<DatabaseList> {
       path = await getDatabasesPath();
     }
 
-    final dir = Directory(path.toString());
+    final dir = Directory(path);
     final databases = dir.listSync();
 
     if (databases.isNotEmpty) {

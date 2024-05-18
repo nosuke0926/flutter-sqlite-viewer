@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import './sqlite_viewer_values.dart';
+import 'package:sqlite_viewer/sqlite_viewer_values.dart';
 
 class TableList extends StatefulWidget {
   final String databasePath;
@@ -27,13 +27,13 @@ class _TableListState extends State<TableList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(basename(widget.databasePath))),
-        body: _getWidget(context));
+        body: _getWidget(context),);
   }
 
   Future<List?> _getTables() async {
     final db = await openDatabase(widget.databasePath);
     final tables = await db.rawQuery(
-        'SELECT name FROM sqlite_master WHERE type = "table" and name != "sqlite_sequence"');
+        'SELECT name FROM sqlite_master WHERE type = "table" and name != "sqlite_sequence"',);
     if (tables.isNotEmpty) {
       return tables;
     }
